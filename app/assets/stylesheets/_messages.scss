@@ -1,0 +1,271 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body{
+  margin: 0;         /* 余白の削除 */
+  padding: 0;        /* 余白の削除 */
+  width:100%;
+  height:100%;
+}
+
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  padding-top:0;
+  padding-bottom:0;
+}
+
+div{
+  display:block;
+}
+
+
+input {
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+  font-size:inherit;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+ul{
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+a{
+  text-decoration: none;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Groups p{
+ color:white; 
+}
+
+
+// ここからブロックづつ。
+
+.Header{
+  width:100%;
+  background-color: #38aef0;
+  color:white;
+  text-align: center;
+  
+}
+
+
+
+.Chat-side{
+  font-weight: bold;
+  color: white;
+  float: left;
+  width: 300px;
+}
+
+.Side-header{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    &__box{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        &__user-name{
+          font-size:16px;
+        }
+        &__menu{
+          padding-top:20px;
+          display:flex;
+          &__new-group{
+            color:#ffffff;
+            font-size:15px;
+            margin-left: 0.3rem;
+          }
+          &__edit-user{
+            color:#ffffff;
+            margin-left: 0.3rem;
+          }
+        }
+    }
+}
+
+.Groups{
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 20px 20px 0;
+  // overflow: scroll;
+  &__group{
+    margin-bottom: 40px;
+    &__name{
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    &__latest-message{
+      font-size: 11px;
+    }
+
+  }
+}
+
+.Chat-main{
+  width: calc(100vw - 300px);
+  float: left;
+}
+
+.Main-header {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #eee;
+  // overflow: scroll;
+  &__left-box{
+    margin-top: 35px;
+    &__current-group{
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    &__member-list{
+    display: flex;
+    font-size: 12px;
+    color: #999999;
+      &__member{
+        display: list-item;
+        text-align: -webkit-match-parent;
+      }
+    }
+  }
+  &__edit-btn{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: solid 1px #38aef0;
+    // position: absolute;
+    right: 40px;
+    &__2{
+      color:#38aef0;
+    }
+  }
+}
+
+
+.Messages{
+  height: calc(100vh - 190px);
+  padding: 46px 40px;
+  background-color: #fafafa;
+  overflow-y: scroll;
+  &__Message{
+    // padding-bottom: 40px;
+    &__upper-info{
+      display: flex;
+      // margin-bottom: 10px;
+      &__talker{
+        color: #434a54;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__date{
+        color: #999999;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+    &__text{
+      color: #434a54;
+      font-size: 14px;
+      // margin-bottom: 10px;
+    }
+  }
+}
+
+.Form{
+  position: fixed;
+  bottom:0;
+  width:80%;
+  height: 90px;
+  padding: 20px 40px;
+  background-color: #ddd;
+
+  &__New_messge{
+    display: flex;
+  }
+
+  &__Input-box{
+    display:flex;
+    position: relative;
+    width: 100%;
+
+      &__text{
+        height: 50px;
+        width: 100%;
+        padding: 0 40px 0 10px;
+        color: #434a54;
+        border-style: none;
+      }
+
+      &__image{
+        font-size: 1.3rem;
+        position: absolute;
+        top: 15px;
+        right: 120px;
+        cursor: pointer;
+      }
+
+  }
+
+}
+
+.Btn{
+  &__submit{
+    width: 100px;
+    height: 50px;
+    padding: 0 30px;
+    margin-left: 15px;
+    background-color: #38aef0;
+    color: white;
+    cursor: pointer;
+  }
+
+}
