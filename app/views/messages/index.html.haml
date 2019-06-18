@@ -50,9 +50,9 @@
           %p.Messages__Messge__text たあ
           
     .Form
-      %form{:action => "/", :method => "post",:class =>"Form__New_messge" }
+      %form(action = "/" method = "post" class = "Form__New_messge" )
       .Form__Input-box
-        %input{:type => "text",:placeholder => "type a message",:name => "message[content]",:class =>"Form__Input-box__text"}
+        %input(type = "text" placeholder = "type a message" name = "message[content]" class = "Form__Input-box__text")
         -# %label.Form__Input-box__image{for: "upload-icon"}
         -#   %i.fa.fa-picture-o
         -#     = f.file_field :image, id: "upload-icon",class: "Form__input-box__image-icon"
@@ -60,7 +60,7 @@
           =link_to " ", class: "Form__input-box__image-icon" do
             = fa_icon  'image', class: "Form__input-box__image-icon"
         .Btn
-        %input{:type => "submit",:value =>"Send",:class =>"Btn__submit"}
+        %input(type = "submit" :value = "Send" class ="Btn__submit")
 
 
 
