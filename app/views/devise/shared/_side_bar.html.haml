@@ -1,0 +1,20 @@
+.Chat-side
+  .Side-header
+    .Side-header__box
+      %p.Side-header__box__user-name  
+        = current_user.name
+      %ul.Side-header__box__menu
+        %li.Side-header__box__menu__new-group
+          =link_to new_group_path, class: "Side-header__box__menu__new-group" do
+            = fa_icon  'edit', class: "Side-header__box__menu__new-group--icon"
+        %li.Side-header__box__menu__edit-user
+          =link_to edit_user_path(current_user), class: "Side-header__box__menu__edit-user" do
+            =fa_icon 'cog', class: "Side-header__box__menu__--icon"
+  .Groups
+    .Groups__group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .Groups__group__name
+            = group.name
+          .Groups__group__latest-message
+            = group.show_last_message

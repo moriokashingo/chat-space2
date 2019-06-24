@@ -31,8 +31,8 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 
 ### Association
-- has_many :users_groups
-- has_many :groups, through: :users_groups
+- has_many :group_users
+- has_many :groups, through: :group_users
 - has_many :messages
 
 ## groupsテーブル
@@ -42,17 +42,17 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :users_groups
-- has_many :users, through: :users_groups
+- has_many :group_users
+- has_many :users, through: :group_users
 - has_many :messages
 
 
-## users_groupsテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|groupe_id|integer|null: false, foreign_key :true|
-|user_id|integer|null: false, foreign_key :true|
+|groupe_id|references|foreign_key :true|
+|user_id|references|foreign_key :true|
 
 ### Association
 - belongs_to :group
@@ -62,10 +62,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text||
+|content|text||
 |image|string| |
-|groupe_id|integer|null: false, foreign_key :true|
-|user_id|integer|null: false, foreign_key :true|
+|groupe|references|foreign_key :true|
+|user|references|foreign_key :true|
 |timestamps |integer|null: false|
 
 

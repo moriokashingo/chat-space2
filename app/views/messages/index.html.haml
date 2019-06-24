@@ -1,67 +1,49 @@
 .Wrapper
   .Header
-    %p.make-group グループを作成しました。
-  .Chat-side
-    .Side-header
-      .Side-header__box
-        %p.Side-header__box__user-name NAME
-        %ul.Side-header__box__menu
-          %li.Side-header__box__menu__new-group
-            =link_to " ", class: "Side-header__box__menu__new-group" do
-              = fa_icon  'edit', class: "Side-header__box__menu__new-group--icon"
-          %li.Side-header__box__menu__edit-user
-            =link_to "  ", class: "Side-header__box__menu__edit-user" do
-              =fa_icon 'cog', class: "Side-header__box__menu__--icon"
-    .Groups
-      .Groups__group
-        =link_to "https://www.instagram.com/", class: "Groups__group" do
-          %span<>
-          %p.Groups__group__name Instagram
-          %p.Groups__group__latest-message 写真いる
-      .Groups__group
-        =link_to "https://twitter.com/", class: "Groups__groupe" do
-          %span<>
-          %p.Groups__group__name Twitter
-          %p.Groups__group__latest-message 文字いる
+  = render partial: 'devise/shared/side_bar'
 
   .Chat-main
+    -# .Main-header
+    -#   .Main-header__left-box
+    -#     %h2.Main-header__left-box__current-group SNS部
+    -#     %ul.Main-header__left-box__member-list 
+    -#       member:
+    -#       %li.Main-header__left-box__member-list__member 田中
+    -#       %li.Main-header__left-box__member-list__member 山田
+    -#   .Main-header__edit-btn
+    -#     =link_to "", class: "Main-header__edit-btn__2" do
+    -#       Edit
+    -# ここをeach文で作る
     .Main-header
-      .Main-header__left-box
-        %h2.Main-header__left-box__current-group SNS部
+      .Main-header_left-box
+        %h2.Main-header__left-box__current-group
+          = @group.name
         %ul.Main-header__left-box__member-list 
           member:
-          %li.Main-header__left-box__member-list__member 田中
-          %li.Main-header__left-box__member-list__member 山田
-      .Main-header__edit-btn
-        =link_to "", class: "Main-header__edit-btn__2" do
-          Edit
+          - @group.users.each do |user|
+            = user.name
+
+
+
     .Messages
-      .Messages__Message
-        .Messages__Message__upper-info
-          %p.Messages__Message__upper-info__talker 田中
-          %p.Messages__Message__upper-info__date 2000/11/11
-        .Messages__Message__text
-          %p.Messages__Messge__text やあ
-      .Messages__Message
-        .Messages__Message__upper-info
-          %p.Messages__Message__upper-info__talker 山田
-          %p.Messages__Message__upper-info__date 2000/11/12
-        .Messages__Message__text
-          %p.Messages__Messge__text たあ
+      = render @messages  #= render partial: 'message', collection: @messagesの略、correctionは繰り返し表示の意味
+
           
     .Form
-      %form(action = "/" method = "post" class = "Form__New_messge" )
-      .Form__Input-box
-        %input(type = "text" placeholder = "type a message" name = "message[content]" class = "Form__Input-box__text")
-        -# %label.Form__Input-box__image{for: "upload-icon"}
-        -#   %i.fa.fa-picture-o
-        -#     = f.file_field :image, id: "upload-icon",class: "Form__input-box__image-icon"
-        %label.Form__Input-box__image
-          =link_to " ", class: "Form__input-box__image-icon" do
-            = fa_icon  'image', class: "Form__input-box__image-icon"
-        .Btn
-        %input(type = "submit" :value = "Send" class ="Btn__submit")
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'Form__text', placeholder: 'type a message'
+        %label.Form__image
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'form__mask__image__icon'
+            = f.file_field :image, class: 'form__mask__image__hidden'
+        = f.submit 'Send', class: 'form__submit'
 
-
-
-
+    -# .form
+    -#   = form_for [@group, @message] do |f|
+    -#     = f.text_field :content, class: 'Form__Input-box__text', placeholder: 'type a message'
+    -#     .form__mask
+    -#       = f.label :image, class: 'form__mask__image' do
+    -#         = fa_icon 'picture-o', class: 'icon'
+    -#         = f.file_field :image, class: 'hidden'
+    -#     = f.submit 'Send', class: 'form__submit'
