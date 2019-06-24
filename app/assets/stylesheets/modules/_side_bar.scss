@@ -1,0 +1,152 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body{
+  margin: 0;         /* 余白の削除 */
+  padding: 0;        /* 余白の削除 */
+  width:100%;
+  height:100%;
+}
+
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  padding-top:0;
+  padding-bottom:0;
+}
+
+div{
+  display:block;
+}
+
+
+input {
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+  font-size:inherit;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+ul{
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+a{
+  text-decoration: none;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Groups p{
+ color:white; 
+}
+
+
+
+
+
+.Header{
+  width:100%;
+  background-color: #38aef0;
+  color:white;
+  text-align: center;
+  
+}
+
+
+
+.Chat-side{
+  font-weight: bold;
+  color: white;
+  float: left;
+  width: 300px;
+}
+
+.Side-header{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    &__box{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        &__user-name{
+          font-size:16px;
+        }
+        &__menu{
+          padding-top:20px;
+          display:flex;
+          &__new-group{
+            color:#ffffff;
+            font-size:15px;
+            margin-left: 0.3rem;
+          }
+          &__edit-user{
+            color:#ffffff;
+            margin-left: 0.3rem;
+          }
+        }
+    }
+}
+
+.Groups{
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 20px 20px 0;
+ 
+  // overflow: scroll;
+  &__group{
+    margin-bottom: 40px;
+    &__name{
+      font-size: 15px;
+      margin-bottom: 5px;
+      color:white;
+    }
+    &__latest-message{
+      font-size: 11px;
+      color:white;
+    }
+
+  }
+}
