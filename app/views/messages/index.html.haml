@@ -3,17 +3,6 @@
   = render partial: 'devise/shared/side_bar'
 
   .Chat-main
-    -# .Main-header
-    -#   .Main-header__left-box
-    -#     %h2.Main-header__left-box__current-group SNS部
-    -#     %ul.Main-header__left-box__member-list 
-    -#       member:
-    -#       %li.Main-header__left-box__member-list__member 田中
-    -#       %li.Main-header__left-box__member-list__member 山田
-    -#   .Main-header__edit-btn
-    -#     =link_to "", class: "Main-header__edit-btn__2" do
-    -#       Edit
-    -# ここをeach文で作る
     .Main-header
       .Main-header_left-box
         %h2.Main-header__left-box__current-group
@@ -32,18 +21,8 @@
     .Form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'Form__text', placeholder: 'type a message'
-        %label.Form__image
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
-            = fa_icon 'picture-o', class: 'form__mask__image__icon'
-            = f.file_field :image, class: 'form__mask__image__hidden'
-        = f.submit 'Send', class: 'form__submit'
-
-    -# .form
-    -#   = form_for [@group, @message] do |f|
-    -#     = f.text_field :content, class: 'Form__Input-box__text', placeholder: 'type a message'
-    -#     .form__mask
-    -#       = f.label :image, class: 'form__mask__image' do
-    -#         = fa_icon 'picture-o', class: 'icon'
-    -#         = f.file_field :image, class: 'hidden'
-    -#     = f.submit 'Send', class: 'form__submit'
+        %label.Form__mask
+          = f.label :image, class: 'form__mask__image', for:'sample' do
+            = fa_icon 'picture-o', class: 'Form__mask__image__icon'
+            = f.file_field :image, class: 'Form__mask__image__hidden', id: 'sample'
+        = f.submit 'Send', class: 'Form__submit'
