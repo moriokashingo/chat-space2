@@ -240,18 +240,22 @@ p {
   }
   &__mask{
     &__image{
-      &__hidden{
+
+      &__icon{
         font-size: 1.3rem;
         position: absolute;
-        top: 30px;
+        top: 35px;
         right: 120px;
         cursor: pointer;
+      }
+      &__hidden{
+        display: none;
       }
     }
   }
 }
 
-.form__submit{
+.Form__submit{
     width: 90-px;
     height: 50px;
     padding: 0 30px;
