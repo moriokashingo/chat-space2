@@ -5,7 +5,7 @@
   .Chat-main
     .Main-header
       .Main-header_left-box
-        %h2.Main-header__left-box__current-group
+        %h2.Main-header__left-box__current-group{data: {group_id: @group.id}}
           = @group.name
         %ul.Main-header__left-box__member-list 
           member:
