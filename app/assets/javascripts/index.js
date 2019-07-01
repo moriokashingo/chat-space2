@@ -29,7 +29,6 @@ $(function() {
       selected_list.append(html)
     }
 
-
     $(search_list).on("click", '.user-search-add', function() {
       appendUser(userdata);
     });
@@ -46,7 +45,6 @@ $(function() {
       var word = newInputs.join("|");
       var reg = RegExp(word);
 
-
       $.ajax({
         type: 'GET',
         url: '/users',
@@ -58,15 +56,11 @@ $(function() {
         if (word != preWord) {
           $(search_list).empty() 
           if(users.length !== 0) {
-  
-        //user検索し、合致するユーザーを表示。後にグループに追加するユーザーを選択する際に使うidにuser.idを指定
+            //user検索し、合致するユーザーを表示。後にグループに追加するユーザーを選択する際に使うidにuser.idを指定
           users.forEach(function(user) {
             appendList(user);
             userdata = user
             //検索結果からユーザーを１人選択し、グループメンバーに追加。　ここでuser.idを指定したい。
-
-
-
           });
         }
       }
