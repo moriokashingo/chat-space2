@@ -31,20 +31,11 @@ $(function() {
 
 
     $(search_list).on("click", '.user-search-add', function() {
-      console.log('aaa');
       appendUser(userdata);
     });
 
     $(selected_list).on("click", '#newmember', function() {
-      console.log("delete")
      $("#newmember").remove();
-
-      // var me = $('#delete'),
-      // kw = me.closest('div');
-      // kw.remove();
-
-      // 上に式書いたりもした
-
     });
 
 
