@@ -1,4 +1,8 @@
 
+body{
+  overflow: scroll;
+}
+
 
 .chat-group-form {
   width: 980px;
@@ -8,7 +12,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
-
+ 
   h1 {
     letter-spacing: 2px;
     font-size: 24px;
