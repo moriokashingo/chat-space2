@@ -45,6 +45,7 @@ $(function() {
     });
 
     $(selected_list).on("click", '#delete', function() {
+      console.log
      $(this).parent().remove();
     });
 
