@@ -22,7 +22,7 @@ $(function() {
 　　//検索後、選択されたユーザーをグループリストに追加
     function appendUser(user) {
       var html = `<div class='chat-group-user clearfix js-chat-member' id='newmember'>
-                    <input name='group[user_ids][]' type='hidden' value='${ user.name }'>
+                    <input name='group[user_ids][]' type='hidden' value='${ user.id }'>
                     <p class='chat-group-user__name'>${ user.name }</p>
                     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn',id="delete">削除</div>
                   </div>`
@@ -33,8 +33,8 @@ $(function() {
       appendUser(userdata);
     });
 
-    $(selected_list).on("click", '#newmember', function() {
-     $("#newmember").remove();
+    $(selected_list).on("click", '#delete', function() {
+     $(this).parent().remove();
     });
 
 
@@ -48,7 +48,7 @@ $(function() {
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: { keyword: input},
         dataType: 'json'
       })
 
