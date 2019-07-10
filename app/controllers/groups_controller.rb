@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
-
+  before_action :authenticate_user!
   
   def index
   end
@@ -10,6 +10,10 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @user = current_user
+  end
+
+  def edit
   end
 
   def create
