@@ -3,6 +3,7 @@
   .Messages__Message__upper-info
     = message.user.name
     = message.created_at.strftime("%Y/%m/%d %H:%M")
+    -# = l comment.created_at, format: :short
   .Messages__Message__text
     - if message.content.present?
       %p.Messages__Messge__text

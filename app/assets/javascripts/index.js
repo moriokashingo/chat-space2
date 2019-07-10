@@ -44,8 +44,8 @@ $(function() {
       appendUser(userdata);
     });
 
-    $(selected_list).on("click", '#newmember', function() {
-     $("#newmember").remove();
+    $(selected_list).on("click", '#delete', function() {
+     $(this).parent().remove();
     });
 
 
@@ -59,7 +59,7 @@ $(function() {
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: { keyword: input},
         dataType: 'json'
       })
 

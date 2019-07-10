@@ -11,6 +11,8 @@
           member:
           - @group.users.each do |user|
             = user.name
+      .Main-header__edit-btn
+        = link_to 'edit', "/groups/#{@group.id}/edit", class: "btn btn-dark btn-sm ", method: :get
 
 
 
