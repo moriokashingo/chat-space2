@@ -1,5 +1,5 @@
 $(function() {
-  if ($(".Main-header")[0]) setInterval(reloadMessages, 5000) //jqueryの存在確認。jqueryの場合.main-headerの要素を確認する。あったら右の指揮を実行。
+  if ($(".Main-header")[0] ) setInterval(reloadMessages, 5000) //jqueryの存在確認。jqueryの場合.main-headerの要素を確認する。あったら右の指揮を実行。
   
 
     var buildMessageHTML = function(message) {
@@ -73,6 +73,7 @@ $(function() {
       .done(function(messages) {
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
          $.each(messages,function(index,message){
+           
           var html = buildMessageHTML(message);
           $('.Messages').append(html)
           $('.Messages').animate({scrollTop: 100000});          
