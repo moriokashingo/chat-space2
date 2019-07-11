@@ -1,6 +1,4 @@
 $(function() {
-
-  var list = $("#list");
   var preWord;
   var userdata;
 
@@ -44,10 +42,14 @@ $(function() {
       appendUser(userdata);
     });
 
-    $(selected_list).on("click", '#delete', function() {
-      console.log
-     $(this).parent().remove();
+    $(selected_list).on("click", '.js-remove-btn', function() {
+      console.log("haha")
+     $(this).parent().detach();
     });
+
+    // $(selected_list).on("click", '#newmember', function() {
+    //   $('#newmember').remove();
+    //  });　元々の削除ボタンの式。これやと上から消してまう。でも新規も既存も消せる。でもせめてボタン姉弟せなあかんと思う
 
 
     $("#user-search-field").on("keyup", function() {
