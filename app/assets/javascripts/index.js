@@ -18,14 +18,14 @@ $(function() {
       search_list.append(html)
     }
 
-    // function appendNolist() {
-    //   var html = `<div class="chat-group-user clearfix">
-    //                 <p class="chat-group-user__name">"一致するユーザーはいません"</p>
-    //               </div>`
-    //    $(search_list).empty() 
-    //   search_list.append(html)
-    //   $(search_list).empty() 
-    // }
+    function appendNolist() {
+       var html = `<div class="chat-group-user clearfix">
+                     <p class="chat-group-user__name">"一致するユーザーはいません"</p>
+                   </div>`
+        $(search_list).empty() 
+       search_list.append(html)
+       $(search_list).empty() 
+    }
 
 　　//検索後、選択されたユーザーをグループリストに追加
     function appendUser(user) {
@@ -47,11 +47,6 @@ $(function() {
      $(this).parent().detach();
     });
 
-    // $(selected_list).on("click", '#newmember', function() {
-    //   $('#newmember').remove();
-    //  });　元々の削除ボタンの式。これやと上から消してまう。でも新規も既存も消せる。でもせめてボタン姉弟せなあかんと思う
-
-
     $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
       var inputs = input.split(" ").filter(function(e) { return e; });
@@ -67,21 +62,19 @@ $(function() {
       })
 
       .done(function(users) {
-
-        if (word != preWord) {
-          $(search_list).empty() 
-          //   if (input.length === 0) {
-          //    appendNolist();
-          //  }
+        $(search_list).empty() 
+        if (word != preWord && input.length !== 0) {
             if(users.length !== 0) {
               //user検索し、合致するユーザーを表示。後にグループに追加するユーザーを選択する際に使うidにuser.idを指定
               $.each(users, function(i, user) {
                 appendList(user);
-                userdata = user
-                //検索結果からユーザーを１人選択し、グループメンバーに追加。　ここでuser.idを指定したい。
-              });
+                userdata = user;
+              })
+            }else{
+              appendNolist();
             }
-
+          }else{
+          $(search_list).empty() 
           }
         preWord = word;
       })
