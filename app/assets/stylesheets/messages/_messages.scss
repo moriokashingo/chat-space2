@@ -81,7 +81,7 @@ p {
 }
 
 .Wrapper{
-  width:100%;
+  width:100vw;
 }
 
 // ここからブロックづつ。
@@ -100,7 +100,7 @@ p {
   font-weight: bold;
   color: white;
   float: left;
-  width: 30%;
+  width: 300px;
 }
 
 .Side-header{
@@ -151,7 +151,7 @@ p {
 }
 
 .Chat-main{
-  width: 70%;
+  width: calc(100vw - 300px);
   float: left;
 }
 
@@ -268,6 +268,6 @@ p {
     cursor: pointer;
     position: absolute;
     top:20px;
-    left:850px;
+    right:10px;
   }
 
