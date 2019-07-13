@@ -33,6 +33,7 @@ $(function() {
 
     $(function () {
       $(document).on("click", '.user-search-add', function () {
+          console.log("papa")
           var name = $(this).attr("data-user-name");
           var user_id = $(this).attr("data-user-id");
           $(this).parent().remove();

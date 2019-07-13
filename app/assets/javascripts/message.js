@@ -61,6 +61,7 @@ $(function() {
 
   
   function reloadMessages() {
+    console.log("dou")
      last_message_id = $('.Messages__Message:last').data('id');
      var group_id = $('.Main-header__left-box__current-group').data('group-id');//{data: {group_id: @group.id}}で指定したのがwebで観たらdata-group-idに変わる。だから記載はこれ。
 
